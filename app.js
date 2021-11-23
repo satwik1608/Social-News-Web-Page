@@ -1,27 +1,60 @@
 let newsList = [
-    {
-        title: "Hacker News",
-        URL: "http://news.ycombinator.com",
-        author: "Sophie"
-    },
-    {
-        title: "Reddit",
-        URL: "https://reddit.com",
-        author: "Thomas"
-    },
-    {
-        title: "BoingBoing",
-        URL: "http://boingboing.net",
-        author: "Daniel"
-    },
+    // {
+    //     title: "Hacker News",
+    //     URL: "http://news.ycombinator.com",
+    //     author: "Sophie"
+    // },
+    // {
+    //     title: "Reddit",
+    //     URL: "https://reddit.com",
+    //     author: "Thomas"
+    // },
+    // {
+    //     title: "BoingBoing",
+    //     URL: "http://boingboing.net",
+    //     author: "Daniel"
+    // },
 
 ];
 
-
+fetch("https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=659bf7b6e5ec435b8d70b022cd25b125")
+.then(response => response.json())
+.then(headline =>{
+    headline.articles.forEach(val =>{
+        const hero = document.createElement('div');
+        const titleElement = document.createElement('div');
+        const linkElement = document.createElement('a');
+        const authorElement = document.createElement('div');
+        
+        linkElement.textContent = val.url;
+        linkElement.setAttribute('href', val.url);
+        titleElement.textContent=val.title;
+        
+        authorElement.textContent=`Submitted by ${val.author}`;
+    
+    
+        titleElement.classList.add('titleElement');
+        linkElement.classList.add('linkElement');
+        authorElement.classList.add('authorElement');
+    
+    
+        hero.classList.add('hero');
+    
+    
+        hero.appendChild(titleElement);
+        hero.appendChild(linkElement);
+        hero.appendChild(authorElement);
+    
+    
+        showData.appendChild(hero);
+    });
+     
+    
+})
 
 
 const showData = document.getElementById('showData');
-showUpdated();
+// showUpdated();
 
 function showUpdated(){
     for(var i =0;i<newsList.length;++i){
