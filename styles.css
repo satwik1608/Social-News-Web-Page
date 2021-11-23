@@ -1,7 +1,7 @@
 body {
   font-size: 62.5%;
   margin: 2rem;
-  background-color: ivory;
+  background-color: rgb(168, 168, 125);
   font-family: "Inter", sans-serif;
 }
 
@@ -12,6 +12,13 @@ body {
   #submit {
     margin-left: 2rem;
   }
+}
+
+.heading {
+  color: black;
+  font-size: 3rem;
+  align-self: center;
+  text-align: center;
 }
 
 #submit {
@@ -33,6 +40,25 @@ body {
   transform: scale(1.1);
 }
 
+#submit2 {
+  background-color: rgb(230, 230, 227);
+  border: 0;
+  color: rgba(0, 0, 0, 0.822);
+  padding: 0.6rem 0.4rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+  width: 10rem;
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#submit2:hover {
+  cursor: pointer;
+  background-color: rgb(211, 203, 203);
+  transform: scale(1.1);
+}
+
 #addData {
   margin-bottom: 0rem;
   display: flex;
@@ -40,16 +66,19 @@ body {
 }
 
 #addlink {
-  background-color: rgb(53, 114, 226);
+  background-color: rgb(67, 126, 236);
   color: white;
   padding: 0.6rem 0.4rem;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(112, 143, 202);
   border: 0;
-  transition: background-color 0.2s;
+  outline: 0;
+  transition: background-color 0.2s, transform 0.2s;
   margin-left: 0.5rem;
 }
 
 #addlink:hover {
+  transform: scale(1.05);
   background-color: rgb(74, 74, 206);
   cursor: pointer;
 }
