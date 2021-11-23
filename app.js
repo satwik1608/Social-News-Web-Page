@@ -111,43 +111,69 @@ submit.addEventListener('click', ()=>{
 
 addLink.addEventListener('click', ()=>{
 
-    var temp = {
-        author: "",
-        URL : "",
-        title : ""
-    };
+    // var temp = {
+    //     author: "",
+    //     URL : "",
+    //     title : ""
+    // };
 
     var temp2 = inputLink.value;
     
-    temp.author= inputAuthor.value;
-    temp.title = inputTitle.value;
-    temp.URL= temp2;
+    var temp3= inputAuthor.value;
+    var temp4 = inputTitle.value;
+    console.log(temp2);
 
-    if(temp.author===""||temp.title===""||temp.URL===""){
-        if(required.classList.contains('hideRequired')){
-        required.classList.remove('hideRequired');
-        }
-    }
+    // if(temp2===""||temp3===""||temp2===""){
+    //     if(required.classList.contains('hideRequired')){
+    //     required.classList.remove('hideRequired');
+    //     }
+    // }
 
-    else{
-        if(!required.classList.contains('hideRequired')){
-            required.classList.add('hideRequired');
-        }
+    // else{
+    //     if(!required.classList.contains('hideRequired')){
+    //         required.classList.add('hideRequired');
+    //     }
     
-    if(temp2.startsWith!="https://"||temp2.startsWith!="http://"){
-    const flag="http://"
-    temp2=flag.concat(temp2);
-    }
+    // if(temp2.startsWith!="https://"||temp2.startsWith!="http://"){
+    // const flag="http://"
+    // temp2=flag.concat(temp2);
+    // }
 
-    temp.URL=temp2;
+    const hero = document.createElement('div');
+    const titleElement = document.createElement('div');
+    const linkElement = document.createElement('a');
+    const authorElement = document.createElement('div');
+    
+    linkElement.textContent = temp2;
+    linkElement.setAttribute('href', temp2);
+    titleElement.textContent=temp4;
+    
+    authorElement.textContent=`Submitted by ${temp3}`;
 
-    var tempTitle = inputTitle.value;
 
-    newsList.unshift(temp);
+    titleElement.classList.add('titleElement');
+    linkElement.classList.add('linkElement');
+    authorElement.classList.add('authorElement');
+
+
+    hero.classList.add('hero');
+
+
+    hero.appendChild(titleElement);
+    hero.appendChild(linkElement);
+    hero.appendChild(authorElement);
+
+
+    showData.appendChild(hero);
+    
+
+    // var tempTitle = inputTitle.value;
+
+    // newsList.unshift(temp);
 
     const success = () =>{
         const messages = document.createElement('p');
-        messages.textContent =`The link ${tempTitle} has been succesfully added!`;
+        messages.textContent =`The link ${temp4} has been succesfully added!`;
         successDiv.appendChild(messages);
         setTimeout(()=>{
             successDiv.removeChild(messages);
@@ -157,15 +183,15 @@ addLink.addEventListener('click', ()=>{
     inputLink.value="";
     inputAuthor.value="";
     inputTitle.value="";
-    showData.innerText="";
-    showUpdated();
+    // showData.innerText="";
+    // showUpdated();
     addData.classList.add('hideAdd');
     success();
     successDiv.classList.remove('hideSuccess');
     setTimeout(() =>{
         successDiv.classList.add('hideSuccess'); 
     }, 2000);
-}
+
 
 
 });
